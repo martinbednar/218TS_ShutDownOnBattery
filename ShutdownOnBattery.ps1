@@ -14,6 +14,10 @@
 
 DO
 {
+    DO
+    {
+        Start-Sleep -Seconds 5
+    } While ((Get-CimInstance -ClassName Win32_Battery | Select-Object -ExpandProperty BatteryStatus) -ne 1)
     Start-Sleep -Seconds 5
 } While ((Get-CimInstance -ClassName Win32_Battery | Select-Object -ExpandProperty BatteryStatus) -ne 1)
 
